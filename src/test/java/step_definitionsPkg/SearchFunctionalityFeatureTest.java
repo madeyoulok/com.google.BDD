@@ -21,7 +21,7 @@ public class SearchFunctionalityFeatureTest extends BaseClass{
 	
 	@Given("customer is in homepage")
 	public void customer_is_in_homepage() {
-		initialization();
+//		initialization(); -> taken care by Hooks class
 		hp = new HomePage();
 		srp = new SearchResultPage();
 		cu = new CommonUtilities();
@@ -46,7 +46,7 @@ public class SearchFunctionalityFeatureTest extends BaseClass{
 	@And("search result page should show results related to desired keyword searched")
 	public void search_result_page_should_show_results_related_to_desired_keyword_searched() {
 	   Assert.assertEquals(srp.returnSearchResultKeywordForValidation(desiredItem), desiredItem);
-	   tearDown();
+//	   tearDown(); -> taken care by Hooks class
 	}
 	
 	@When("customer hits enter key")
@@ -66,8 +66,24 @@ public class SearchFunctionalityFeatureTest extends BaseClass{
 
 	@And("search result page should show error message {string}")
 	public void search_result_page_should_show_error_message(String noResultErrorMsg) {
-	    Assert.assertEquals(srp.returnNoResultErrorMsg(), prop.getProperty("expectedNoSearchResultErrorMsg"));
-	    tearDown();
+	    Assert.assertEquals(srp.returnNoResultErrorMsg(), noResultErrorMsg);
+//	    tearDown(); -> taken care by Hooks class
+	}
+	
+	@When("customer enters {string} in search textfield")
+	public void customer_enters_in_search_textfield(String desiredItem) {
+		 hp.enterValueSearchTxtBox(desiredItem);
+	}
+
+	@Then("customer should land in search result page for {string} searched")
+	public void customer_should_land_in_search_result_page_for_searched(String desiredItem) {
+		Assert.assertTrue(srp.returnActualSearchResultPageTitle().contains(desiredItem));
+	    Assert.assertTrue(srp.returnActualSearchResultPageURL().contains(desiredItem));
+	}
+
+	@And("search result page should show results related to {string} searched")
+	public void search_result_page_should_show_results_related_to_searched(String desiredItem) {
+		Assert.assertEquals(srp.returnSearchResultKeywordForValidation(desiredItem), desiredItem);
 	}
 
 }

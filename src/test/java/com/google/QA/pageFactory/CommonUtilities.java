@@ -18,5 +18,13 @@ public class CommonUtilities extends BaseClass{
 		action.sendKeys(Keys.ENTER).build().perform();
 	}
 	
+	public void triggerContextClick() {
+		action.contextClick().build().perform();
+	}
+	
+	public void triggerClick() {
+		action.click().build().perform();
+	}
+	
 	
 }
