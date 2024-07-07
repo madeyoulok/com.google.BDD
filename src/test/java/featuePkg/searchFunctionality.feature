@@ -75,7 +75,7 @@ Scenario: Edge search functionality test by clicking Google Search button withou
 Given customer is in homepage
 When customer deos not enter keywords in search textfield
 And clicks Google Search button
-Then customer should see error message "Blank input is not allowed!"
+Then customer should see error message "Blank input is not allowed"
 
 
 
