@@ -17,15 +17,18 @@
 ## (Comments)
 #Sample Feature Definition Template
 
+@GoogleApps
 Feature: Google Apps
 As a customer, I should be able to see apps available after clicking Google Apps in home page and they should be functional
 
+@Smoke @Regression
 Scenario: Testing Google Maps app from Google Apps
 Given customer is in homepage
 When customer clicks on Google App
 And customer clicks on Maps
 Then customer should be in Google Maps page
 
+@Sanity @Regression
 Scenario: Testing YouTube app from Google Apps
 Given customer is in homepage
 When customer clicks on YouTube from Google Apps down drop

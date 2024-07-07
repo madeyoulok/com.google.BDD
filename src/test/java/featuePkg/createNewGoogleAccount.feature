@@ -17,8 +17,10 @@
 ## (Comments)
 #Sample Feature Definition Template
 
+@NewAccount
 Feature: Creating new google account
 
+@Smoke
 Scenario Outline: Create new google account data driven test
 Given customer is in homepage
 And customer clicks sign-in link
